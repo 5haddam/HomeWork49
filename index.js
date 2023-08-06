@@ -112,6 +112,4 @@ function render(query) {
   }
 }
 
-// render();
-
 search();
