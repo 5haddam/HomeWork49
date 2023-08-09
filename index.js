@@ -9,7 +9,6 @@ function search() {
     const searchResult = input.value.replaceAll(' ', '+');
     if (!!searchResult.trim()) {
       render(searchResult);
-      console.log(searchResult);
     }
   });
 }
@@ -38,7 +37,6 @@ function render(query) {
   async function fetchData() {
     return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}&maxResults=40&startIndex=${startIndex}`)
       .then(response => {
-        console.log(response);
         return response.json()})
       .then(data => {
         if (data?.items) {
@@ -70,7 +68,6 @@ function render(query) {
   }
   
   function renderBooks(data) {
-    console.log(data);
     data[0].items.forEach(book => { main.append(renderBook(book)) });
   }
   
@@ -80,7 +77,6 @@ function render(query) {
   }
   
   function renderBook(bookData) {
-    console.log(bookData);
     const infoLink = document.createElement('a');
     const book = document.createElement('div');
     const img = document.createElement('img');
